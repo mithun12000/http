@@ -2,14 +2,15 @@
 /**
  * Delete Rest call wrapper using Curl
  *
- * @author Mithun Mandal <mithun.mandal@quikr.com>
+ * @author Mithun Mandal <mithun12000@gmail.com>
  */
-namespace jobs\components\http;
+namespace mithun\http\method;
+use mithun\http\lib\Curl;
 
 /**
  * Delete Wrapper for Rest API's
  *
- * @author Mithun Mandal <mithun.mandal@quikr.com>
+ * @author Mithun Mandal <mithun12000@gmail.com>
  */
 class Delete extends Curl{
     /**

@@ -2,14 +2,14 @@
 /**
  * Multiple http request in paraller call wrapper
  *
- * @author Mithun Mandal <mithun.mandal@quikr.com>
+ * @author Mithun Mandal <mithun12000@gmail.com>
  */
-namespace jobs\components\http;
+namespace mithun\http\lib;
 
 /**
  * Multi Curl Wrapper for Rest API's
  *
- * @author Mithun Mandal <mithun.mandal@quikr.com>
+ * @author Mithun Mandal <mithun12000@gmail.com>
  */
 class MultiCurl extends Curl {
     /**

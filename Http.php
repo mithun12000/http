@@ -4,7 +4,7 @@
  *
  * @author Mithun Mandal <mithun.mandal@quikr.com>
  */
-namespace jobs\components\http;
+namespace mithun\http;
 
 /**
  * Http Standard for Rest API's

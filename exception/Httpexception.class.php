@@ -2,11 +2,10 @@
 /**
  * Http exception handler
  *
- * @author Mithun Mandal <mithun.mandal@quikr.com>
+ * @author Mithun Mandal <mithun12000@gmail.com>
  */
 
-namespace jobs\components\http\exception;
-use jobs\exception\BaseException;
+namespace mithun\http\exception;
 
 
 /**
