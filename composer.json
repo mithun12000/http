@@ -1,5 +1,5 @@
 {
-	"name": "Curl HTTP Component",
+	"name": "mithun12000/http",
 	"description": "Curl wrapper",
 	"keywords": ["HTTP","curl","yii2", "framework", "component"],
 	"homepage": "https://github.com/mithun12000/http",
