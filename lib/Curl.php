@@ -8,6 +8,7 @@
 namespace mithun\http\lib;
 
 use mithun\http\exception\Httpexception;
+use mithun\http\Http;
 
 /**
  * Curl Wrapper for Rest API's
