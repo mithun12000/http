@@ -13,6 +13,6 @@ namespace mithun\http\exception;
  *
  * @author Mithun Mandal <mithun.mandal@quikr.com>
  */
-class Httpexception extends BaseException {
+class Httpexception extends \Exception {
     //put your code here
 }
