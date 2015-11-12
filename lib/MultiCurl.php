@@ -13,8 +13,8 @@ namespace mithun\http\lib;
  */
 class MultiCurl extends Curl {
     /**
-     * Multi Curl Resource
-     * @var Resource 
+     * Multi Curl Resource Array
+     * @var Array 
      */
     private $multi;
     
@@ -48,6 +48,7 @@ class MultiCurl extends Curl {
                 curl_multi_exec($this->ch, $running);
         } while($running > 0);
 
+        $result = [];
 
         // get content and remove handles
         foreach($this->multi as $id => $c) {

@@ -16,7 +16,7 @@ class Http {
      * Http Success Code in Array
      * @var Array 
      */
-    static private $sucesscode = array(
+    private static $sucesscode = array(
         200=>"OK",
         201=>"Created",
         202=>"Accepted",
@@ -30,7 +30,7 @@ class Http {
      * Http Information Code in Array
      * @var Array 
      */
-    static private $informcode = array(
+    private static $informcode = array(
         100=>"Continue",
         101=>"Switching Protocols"
     );
@@ -39,7 +39,7 @@ class Http {
      * Http Redirect Code in Array
      * @var Array 
      */
-    static private $redirectcode = array(
+    private static $redirectcode = array(
         300=>"Multiple Choices",
         301=>"Moved Permanently",
         302=>"Found",
@@ -54,7 +54,7 @@ class Http {
      * Http Error Code in Array
      * @var Array 
      */
-    static private $errorcode = array(
+    private static $errorcode = array(
         400=>"Bad Request",
         401=>"Unauthorized",
         402=>"Payment Required",
@@ -79,7 +79,7 @@ class Http {
      * Http Server Error Code in Array
      * @var Array 
      */
-    static private $servererrorcode = array(
+    private static $servererrorcode = array(
         500=>"Internal Server Error",
         501=>"Not Implemented",
         502=>"Bad Gateway",
@@ -93,7 +93,7 @@ class Http {
      * @param Integer $code http status code
      * @return Boolean
      */
-    static public function checkSuccess($code){
+    public static function checkSuccess($code){
         return isset(self::$sucesscode[$code]) ? true : false;
     }
     
@@ -102,7 +102,7 @@ class Http {
      * @param Integer $code http status code
      * @return Boolean
      */
-    static public function checkRedirect($code){
+    public static function checkRedirect($code){
         return isset(self::$redirectcode[$code]) ? true : false;
     }
     
@@ -111,7 +111,7 @@ class Http {
      * @param Integer $code http status code
      * @return Boolean
      */
-    static public function checkError($code){
+    public static function checkError($code){
         return isset(self::$errorcode[$code]) ? true : isset(self::$servererrorcode[$code]) ? true : false;
     }
     
@@ -120,7 +120,7 @@ class Http {
      * @param Integer $code http status code
      * @return Boolean
      */
-    static public function checkInfo($code){
+    public static function checkInfo($code){
         return isset(self::$informcode[$code]) ? true : false;
     }
 }
