@@ -358,14 +358,12 @@ class Curl {
 	
     /**
      * for multi-curl callback defination.
-     * @param Object $obj
-     * @param String $method
+     * @param mixed $callable
      * @param Array $arg
      */
-    public function multiCallback($obj,$method,$arg = array()){
+    public function multiCallback($callable,$arg = array()){
         $this->callable = array(
-            'obj' => $obj,
-            'method' => $method,
+            'call' => $callable,
             'arg' => $arg
         );
     }
@@ -376,7 +374,9 @@ class Curl {
      */
     protected function exeCallback($result){
         try {
-            call_user_method($this->callable['method'],$this->callable['obj'],  array_merge($this->callable['arg'],array($result)));
+        	if($this->callable){
+            	call_user_func_array($this->callable['call'],  array_merge($this->callable['arg'],array($result)));
+        	}
         } catch (Httpexception $ex) {
             
         }
