@@ -359,11 +359,11 @@ class Curl {
      */
     protected function exeCallback($result){
         try {
-        	if($this->callable){
+        	if(isset($this->callable['call'])){
             	call_user_func_array($this->callable['call'],  array_merge($this->callable['arg'],array($result)));
         	}
         } catch (Httpexception $ex) {
-            
+        	throw new Httpexception("Callback failed to execute.",500);
         }
     }
     
