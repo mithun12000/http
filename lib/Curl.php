@@ -61,7 +61,7 @@ class Curl {
     
     /**
      * Curl Information
-     * @var Array 
+     * @var mixed
      */
     public $info = array();
     
@@ -97,7 +97,7 @@ class Curl {
         
     /**
      * For multi-curl callback function to be define here
-     * @var type 
+     * @var array 
      */
     private $callable = array();
     
@@ -178,7 +178,7 @@ class Curl {
 
     /**
      * Check SSL url please modify if you has to do for https url.
-     * @param type $url
+     * @param string $url
      */
     protected function checksslurl($url){
         if((parse_url($url,PHP_URL_SCHEME) == 'https')||(parse_url($url,PHP_URL_PORT) == 443) ){
@@ -247,23 +247,7 @@ class Curl {
         }
         
         if(!$prepare){
-            $return = curl_exec($this->ch);
-            
-            try {
-                if($return === false){
-                    throw new Httpexception(curl_error($this->ch),curl_errno($this->ch));
-                }
-                $this->info = curl_getinfo($this->ch);
-                
-                if(!Http::checkSuccess($this->info['http_code'])){
-                    throw new Httpexception("API call is not successful.",$this->info['http_code']);
-                }
-                curl_close($this->ch);
-                return $return;
-                                
-            } catch (Httpexception $ex) {
-                curl_close($this->ch);
-            }
+        	return $this->execute();
         }else{
         	return $this;
         }
@@ -276,6 +260,7 @@ class Curl {
      * @throws Httpexception
      */
     public function execute(){
+    	$return = curl_exec($this->ch);
         try {
             if($return === false){
                 throw new Httpexception(curl_error($this->ch),curl_errno($this->ch));
