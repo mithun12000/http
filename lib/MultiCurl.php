@@ -17,6 +17,16 @@ class MultiCurl extends Curl {
      * @var Resource 
      */
     private $multi;
+    
+    /**
+     * Object Constructor
+     * @throws Httpexception when Curl module not found.
+     */
+    public function __construct(){
+    	if( !function_exists('curl_init') )
+    		throw new Httpexception('You must have CURL enabled in order to use this extension.');
+    		$this->ch = curl_multi_init();
+    }
 
     /**
      * Adding Curl Object on Multi-curl process
@@ -43,12 +53,10 @@ class MultiCurl extends Curl {
         foreach($this->multi as $id => $c) {
             $result[$id] = curl_multi_getcontent($c->ch);
             $c->exeCallback($result[$id]);
-            curl_multi_remove_handle($mh, $c);
+            curl_multi_remove_handle($this->ch, $c->ch);
         }		
         // all done
-        curl_multi_close($mh);
+        curl_multi_close($this->ch);
         return;		
     }
-    
-    
 }
