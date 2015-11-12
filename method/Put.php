@@ -19,10 +19,10 @@ class Put extends Curl{
      * @param Array $data Post values
      * @param boolean $jsonpost Whether JSON post or not
      * @param boolean $prepare whether prepare or not
-     * @return String 
+     * @return mixed 
      * @throws \Exception
      */
-    public function run($url, $data = array(), $jsonpost = false, $prepare = false) {
+    public function sendRequest($url, $data = array(), $jsonpost = false, $prepare = false) {
         return parent::run($url, Curl::PUT, $data, $jsonpost, $prepare);
     }
     

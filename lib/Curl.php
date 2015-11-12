@@ -202,6 +202,19 @@ class Curl {
         isset($this->options['setOptions'][CURLOPT_FAILONERROR]) ? $this->setOption(CURLOPT_FAILONERROR,$this->options['setOptions'][CURLOPT_FAILONERROR]) : $this->setOption(CURLOPT_FAILONERROR,TRUE);  
         $this->setOption(CURLOPT_FOLLOWLOCATION, true);
     }
+    
+    /**
+     * Alias for curl request processing default GET
+     * @param String $url Target Url
+     * @param Array $data Post values
+     * @param boolean $jsonpost Whether JSON post or not
+     * @param boolean $prepare whether prepare or not
+     * @return mixed 
+     * @throws Httpexception
+     */
+    public function sendRequest($url,$data = array(),$jsonpost = false, $prepare = false){
+    	return $this->run($url,self::GET,$data,$jsonpost,$prepare);
+    }
 
     /**
      * Main Function for Processing Curl
@@ -210,7 +223,7 @@ class Curl {
      * @param Array $data Post values
      * @param boolean $jsonpost Whether JSON post or not
      * @param boolean $prepare whether prepare or not
-     * @return String 
+     * @return mixed 
      * @throws Httpexception
      */
     public function run($url,$method = self::GET,$data = array(),$jsonpost = false, $prepare = false){
@@ -251,6 +264,8 @@ class Curl {
             } catch (Httpexception $ex) {
                 curl_close($this->ch);
             }
+        }else{
+        	return $this;
         }
     }
 

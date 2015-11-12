@@ -47,7 +47,7 @@ class MultiCurl extends Curl {
         }		
         // all done
         curl_multi_close($mh);
-        return $result;		
+        return;		
     }
     
     
