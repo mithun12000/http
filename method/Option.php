@@ -23,7 +23,7 @@ class Option extends Curl {
      * @throws \Exception
      */
     public function sendRequest($url, $data = array(), $jsonpost = false, $prepare = false) {
-        return parent::run($url, Curl::OPTION, $data, $jsonpost, $prepare);
+        return $this->run($url, Curl::OPTION, $data, $jsonpost, $prepare);
     }
     
     /**

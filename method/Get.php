@@ -25,7 +25,7 @@ class Get extends Curl {
      * @throws \Exception
      */
     public function sendRequest($url, $data = array(), $jsonpost = false, $prepare = false) {
-        return parent::run($url, Curl::GET, $data, $jsonpost, $prepare);
+        return $this->run($url, Curl::GET, $data, $jsonpost, $prepare);
     }
     
     /**

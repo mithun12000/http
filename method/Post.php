@@ -22,7 +22,7 @@ class Post extends Curl{
      * @throws \Exception
      */
     public function sendRequest($url, $data = array(), $jsonpost = false, $prepare = false) {        
-        return parent::run($url, Curl::POST, $data, $jsonpost, $prepare);
+        return $this->run($url, Curl::POST, $data, $jsonpost, $prepare);
     }
     
     /**

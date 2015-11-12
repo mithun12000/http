@@ -23,7 +23,7 @@ class Head extends Curl {
      * @throws \Exception
      */
     public function rsendRequestun($url, $data = array(), $jsonpost = false, $prepare = false) {
-        return parent::run($url, Curl::HEAD, $data, $jsonpost, $prepare);
+        return $this->run($url, Curl::HEAD, $data, $jsonpost, $prepare);
     }
     
     /**

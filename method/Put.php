@@ -23,7 +23,7 @@ class Put extends Curl{
      * @throws \Exception
      */
     public function sendRequest($url, $data = array(), $jsonpost = false, $prepare = false) {
-        return parent::run($url, Curl::PUT, $data, $jsonpost, $prepare);
+        return $this->run($url, Curl::PUT, $data, $jsonpost, $prepare);
     }
     
     /**
