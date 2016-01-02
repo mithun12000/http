@@ -305,7 +305,7 @@ class Curl {
         }else{
             $thePostString .= '&' . urlencode((string)$thePrefix) . '=' . urlencode($string) ;
         }		
-        $r =& substr($thePostString, 1) ;		
+        $r = substr($thePostString, 1) ;		
         return $r ;
     }
 
