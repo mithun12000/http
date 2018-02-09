@@ -4,7 +4,7 @@
 	"keywords": ["HTTP","curl","multi curl","yii2", "framework","extension", "component"],
 	"homepage": "https://github.com/mithun12000/http",
 	"type": "project",
-	"license": "GPL-2.0",	
+	"license": "MIT",	
 	"minimum-stability": "dev",
 	"require": {
 		"php": ">=5.4.0",
