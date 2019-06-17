@@ -182,9 +182,9 @@ class Curl {
      */
     protected function checksslurl($url){
         if((parse_url($url,PHP_URL_SCHEME) == 'https')||(parse_url($url,PHP_URL_PORT) == 443) ){
-            $this->setOption(CURLOPT_SSLVERSION,3);
+            $this->setOption(CURLOPT_SSLVERSION,6);
             $this->setOption(CURLOPT_SSL_VERIFYPEER, FALSE);
-            $this->setOption(CURLOPT_SSL_VERIFYHOST, 2); 
+            $this->setOption(CURLOPT_SSL_VERIFYHOST, FALSE);
         }
     }
     
@@ -227,6 +227,7 @@ class Curl {
      * @throws Httpexception
      */
     public function run($url,$method = self::GET,$data = array(),$jsonpost = false, $prepare = false){
+        $this->checksslurl($url);
         $this->setUrl($url);
         if( !$this->url ){
             throw new Httpexception('You must set Url.');
